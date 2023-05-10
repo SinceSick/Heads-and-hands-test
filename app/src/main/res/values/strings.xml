@@ -13,5 +13,8 @@
     <string name="result_weather">Погода за окном %s, ощущается как %s</string>
     <string name="snack_bar_close">Закрыть</string>
     <string name="error_snack_text">Произошла ошибка, попробуйте снова</string>
+    <string name="close_dialog_title">Выход?</string>
+    <string name="close_dialog_positive">Да</string>
+    <string name="close_dialog_negative">Нет</string>
 
 </resources>

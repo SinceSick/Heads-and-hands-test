@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View.OnClickListener
 import android.view.View.OnFocusChangeListener
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         initEmailField()
         initPasswordField()
         initButtons()
+        initToolbar()
     }
 
     override fun onResume() {
@@ -64,23 +66,28 @@ class MainActivity : AppCompatActivity() {
         viewModel.cancelScope()
     }
 
-    private fun initSubscribers() {
-        /*viewModel.subscribeOnEmailError()
-            .filter { viewModel.emailErrorStatus }
-            .onEach {
-                binding?.mailContainer?.error = getString(R.string.error_email)
-                setLoaderVisibility(false)
-            }
-            .launchIn(lifecycleScope)
+    private fun initToolbar() {
+        binding?.toolbar?.setNavigationOnClickListener {
+            showCloseAppDialog()
+        }
+        onBackPressedDispatcher.addCallback {
+            showCloseAppDialog()
+        }
+    }
 
-        viewModel.subscribeOnPasswordError()
-            .filter { viewModel.passwordErrorStatus }
-            .onEach {
-                binding?.passwordContainer?.error = getString(R.string.error_password)
-                setLoaderVisibility(false)
+    private fun showCloseAppDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setBackground(ContextCompat.getDrawable(this, R.color.white))
+            .setTitle(getString(R.string.close_dialog_title))
+            .setPositiveButton(getString(R.string.close_dialog_positive)) { _, _ ->
+                this.finish()
             }
-            .launchIn(lifecycleScope)
-*/
+            .setNegativeButton(getString(R.string.close_dialog_negative)) { _, _ -> }
+            .create()
+            .show()
+    }
+
+    private fun initSubscribers() {
         viewModel.subscribeOnWeather()
             .onEach {
                 setLoaderVisibility(false)
