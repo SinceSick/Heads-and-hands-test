@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HeadsAndHeadsTest</string>
+    <string name="hint_email">Электронная почта</string>
+    <string name="hint_password">Пароль</string>
+    <string name="title_toolbar">Авторизация</string>
+    <string name="button_toolbar">СОЗДАТЬ</string>
+    <string name="password_dialog_title">Требования к паролю</string>
+    <string name="password_dialog_content">Пароль - минимум 6 символов, должен обязательно содержать минимум 1 строчную букву, 1 заглавную, и 1 цифру</string>
+    <string name="password_dialog_button_text">Понятно</string>
+    <string name="error_email">Адрес не соответствует формату</string>
+    <string name="error_password">Пароль не соответствует требованиям</string>
+    <string name="login">ВОЙТИ</string>
+    <string name="result_weather">Погода за окном %s, ощущается как %s</string>
+    <string name="snack_bar_close">Закрыть</string>
+    <string name="error_snack_text">Произошла ошибка, попробуйте снова</string>
+
+</resources>
